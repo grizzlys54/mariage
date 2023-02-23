@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Faire-part de mariage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/papyrus" rel="stylesheet">
+                
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body style="background-image: url(https://i.etsystatic.com/24827947/r/il/85ffa3/3424223205/il_794xN.3424223205_ftkh.jpg);  background-size: cover;">
+    <header>
+      <h1>Faire-part de mariage</h1>
+    </header>
+    <main>
+      <section> 
+        <h2>Roxanne Fournier & Louis Gaudreau</h2>
+        <h3>Nous nous marions le 5 août 2023. Nous serions ravis que vous nous rejoigniez en ce jour spécial !</h3>
+        <form>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name">
+            <label for="attendance">Serez-vous présent?</label>
+            <select id="attendance" name="attendance">
+              <option value="yes">Oui</option>
+              <option value="no">Non</option>
+            </select>
+            <div> 
+              <label for="allergy">Avez-vous une allergie alimentaire ?</label>
+              <input type="checkbox" id="allergy" name="allergy">
+            </div>
+            <label for="bring-guest">Serez-vous accompagné ?</label>
+            <input type="checkbox" id="bring-guest" name="bring-guest" onchange="showGuest()">
+            <div id="guest-section" style="display: none; margin-top: 5%;">
+              <label for="guest-name">Nom de l'invité:</label>
+              <input type="text" id="guest-name" name="guest-name"> 
+              <label for="allergy-guest">Est-ce que votre invité à une allergie alimentaire ?</label>
+              <input type="checkbox" id="allergy-guest" name="allergy-guest">
+            </div>    
+            <div id="songs-request" style="border-top:5px solid #800020; margin-top: 5%; padding-top: 20px;">
+              <h2>Demandes spéciales</h2>
+              <h3>Aidez-nous à rendre la fête encore meilleure en demandant vos chansons préférées !</h3>
+              <form class="songs-form">
+                <div id="div-songs-form" >
+                  <div class="song-request" style="border:1px solid #800020; margin-top: 1%; padding-top: 20px; border-radius: 5px;">
+                    <label for="song-name">Song Name:</label>
+                    <input type="text" id="song-name" name="song-name">
+                    <label for="artist-name">Artist Name:</label>
+                    <input type="text" id="artist-name" name="artist-name"> 
+                  </div>
+                </div> 
+              </form>
+              <button type="button" id="add-song-button">Ajouter une autre chanson</button>
+            </div> 
+            <div style="margin-top: 5%;"> 
+              <button type="submit" id="btnSubmit">Envoyer</button>
+            </div>
+          </form>
+        <ul id="responses">
+        </ul>
+      </section>
+       
+    </main>
+    <footer>
+      <p>Copyright &copy; Louis Gaudreau & Roxanne Fournier</p> 
+    </footer>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
+    </script>
+     <script type="text/javascript">
+      (function() {
+          // https://dashboard.emailjs.com/admin/account
+        emailjs.init("co5wmnqNtXfiRYLq5"); //use your USER ID
+      })();
+  </script>
+    <script> 
+
+      const form = document.querySelector("form");
+      const responsesList = document.querySelector("#responses");  
+      const addSongButton = document.getElementById("add-song-button");
+      const btnSubmit = document.getElementById("btnSubmit");
+
+      addSongButton.addEventListener("click", function() {
+        const songsForm = document.querySelector("#div-songs-form");
+        const newSongRequest = document.querySelector(".song-request").cloneNode(true);
+        songsForm.appendChild(newSongRequest);
+      });
+
+      function showGuest() {
+          const bringGuest = document.getElementById("bring-guest").checked;
+          const guestSection = document.getElementById("guest-section")
+
+          guestSection.style.display = bringGuest ? "block" : "none"; 
+        }
+
+      
+
+      btnSubmit.addEventListener("click", function() {
+        var templateParams = {
+            name: 'Sender',
+            notes: 'Test email'
+        };
+
+        emailjs.send('service_98bfdrl', 'template_q9kzfv3', templateParams) //Insert your email service ID and email template ID
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+              console.log('FAILED...', error);
+            });
+      }); 
+    </script>
+  </body>
+</html>
