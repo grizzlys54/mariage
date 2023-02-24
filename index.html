@@ -9,7 +9,9 @@
   <meta name="description" content="">
   
   
-  <title>Home</title>
+  <title>Home</title>stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="flipdown.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -23,6 +25,8 @@
 
   
   
+  <script type="text/javascript" src="flipdown.min.js"></script>
+
   
 </head>
 <body>
@@ -67,11 +71,13 @@
             <div class="col-12 col-md">
                 <div class="text-wrapper text-center">
                     <h1 class="mbr-section-title mbr-fonts-style mb-3 display-2">
-                        <strong>
-</strong><div><strong><br></strong></div><div><strong>Bienvenue au mariage de Roxanne &amp; Louis</strong></div></h1>
+                        <div><strong>Bienvenue au mariage de Roxanne &amp; Louis</strong></div></h1>
                     <p class="mbr-text mbr-fonts-style display-7">Nous nous marions le 5 août 2023. Nous serions ravis que vous nous rejoigniez en ce jour spécial !</p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-7" href="main.html">Je viens !</a></div>
                 </div>
+                <div id="flipdown" class="flipdown text-wrapper text-center" style="width: 70%;  display: flex;  margin-left: auto; margin-right: auto; "></div>
+                
+                <div class="text-wrapper text-center">
+                    <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-7" href="main.html">Je viens !</a></div></div>
             </div>
         </div>
     </div>
@@ -147,11 +153,7 @@
 </section>
 
 <section data-bs-version="5.1" class="footer7 cid-sFF3CYc3p7" once="footers" id="footer7-9">
-
-    
-
-    
-
+ 
     <div class="container">
         <div class="media-container-row align-center mbr-white">
             <div class="col-12">
@@ -161,5 +163,13 @@
         </div>
     </div> 
   
-</body>
+</body>  <script>
+    // Set the date we're counting down to
+    var countDownDate = (new Date(2023, 7, 5, 15, 30, 0).getTime() / 1000);
+
+    new FlipDown(countDownDate, { 
+        headings: ["Jours", "Heures", "Minutes", "Secondes"]
+    }).start();
+ 
+    </script>
 </html>
