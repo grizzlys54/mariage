@@ -208,13 +208,25 @@
   width: 50px;
   height: 40px;
   border-radius: 0px 0px 4px 4px;
+} 
+/*
+@media (max-width: 991px) {
+  .cid-sFF0SGinka .image-wrapper {
+    padding: unset !important; 
+  }
 }
+@media (min-width: 992px) {
+  .cid-sFF0SGinka .text-wrapper {
+     padding: unset !important; 
+  }
+}*/
 
-@media (max-width: 550px) {
+@media (max-width: 1894px) {
 
-  .flipdown {
-    /*width: 312px;
-    height: 70px;*/
+  .flipdown { 
+    margin-top: 5%;
+    width: unset !important; 
+    display: unset !important;
   }
 
   .flipdown .rotor {
