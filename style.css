@@ -1,6 +1,4 @@
-body {
-    /*font-family: 'Great Vibes', cursive;
-    font-family: 'Papyrus';*/
+body { 
     font-family: 'Lexend', sans-serif;
     background-color: #f2f2f2;
   }
@@ -14,20 +12,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 88vh;
     flex-direction: column;
+    overflow-y: auto;
   }
   section {
     background-color: #fff;
-    border: 1px solid #800020;
-    
-  border-radius: 25px;
+    border: 1px solid #800020; 
+    border-radius: 25px;
     padding: 2em;
     text-align: center;
     width: 60%;
-    font-size: 1.5em;
+    font-size: 1em;
     animation: fadeIn 1s ease-in-out;
-    overflow-y: auto;
     margin: 10px;
   }
   img {
