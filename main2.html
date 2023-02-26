@@ -36,8 +36,7 @@
 </head>
 
 <body>
-
-    <section data-bs-version="5.1" class="menu menu2 cid-sFF0ciwnEL fadeInDown" once="menu" id="menu2-0">
+    <section data-bs-version="5.1" class="menu menu2 cid-sFF0ciwnEL fadeInDown first" once="menu" id="menu2-0">
         <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
             <div class="container-fluid">
                 <div class="navbar-brand">
@@ -46,45 +45,102 @@
                         <div class="text-white display-7">Roxanne &amp; Louis 2023</div>
                     </span>
                 </div>
-               
+
             </div>
         </nav>
     </section>
 
-    <section data-bs-version="5.1" class="form7 cid-twQEQDZ7TC header11 cid-sFF0SGinka" id="form7-3"  style="background-color: #f0ece2"> 
+    <section data-bs-version="5.1" class="form7 cid-twQEQDZ7TC header11 cid-sFF0SGinka fadeIn second" id="form7-3"
+        style="background-color: #f0ece2; display:flex;">
         <div class="container">
             <div class="mbr-section-head">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                    <strong>Get in Touch</strong>
+                    <strong id="title">Confirmation</strong>
                 </h3>
-
             </div>
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-8 mx-auto mbr-form" style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%">
-                    <form method="POST" class="mbr-form form-with-styler mx-auto"
-                        data-form-title="Form Name">  
-                        <div class="dragArea row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
-                                <input type="text" name="name" placeholder="Name" data-form-field="name"
-                                    class="form-control" value="" id="name-form7-3">
+            <div class="row justify-content-center mt-4" id="form1">
+                <div class="col-lg-8 mx-auto mbr-form"
+                    style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
+                    <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous
+                        afin de confirmer votre présence ou non.</p>
+                    <div class="dragArea row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
+                            data-for="email">
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">Je
+                                serais présent:</p>
+                            <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;"
+                                id="selectPresent">
+                                <option value="1" selected>Oui</option>
+                                <option value="2">Non</option>
+                            </select>
+                        </div>
+                        <div id="divQuestionOui" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
+                                data-for="email">
+                                <p class="mbr-text mbr-fonts-style mb-3 display-7"
+                                    style="width: 70%; margin-top: 10px;">Pour le repas, je choisi l'option
+                                    végétarien:</p>
+                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                    <option value="1">Oui</option>
+                                    <option value="2" selected>Non</option>
+                                </select>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
-                                <input type="email" name="email" placeholder="Email" data-form-field="email"
-                                    class="form-control" value="" id="email-form7-3">
-                            </div>
-                            <div data-for="phone" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
-                                <input type="tel" name="phone" placeholder="Phone" data-form-field="phone"
-                                    class="form-control" value="" id="phone-form7-3">
-                            </div>
-                            <div class="col-auto mbr-section-btn align-center">
-                                <button type="submit" class="btn btn-primary display-4">Submit</button>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
+                                data-for="email">
+                                <p class="mbr-text mbr-fonts-style mb-3 display-7"
+                                    style="width: 70%; margin-top: 10px;">Je serais accompagné:</p>
+                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                    <option value="1" selected>Oui</option>
+                                    <option value="2">Non</option>
+                                </select>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Nom" data-form-field="name" class="form-control"
+                                value="" id="name-form7-3">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
+                            <input type="email" name="email" placeholder="Adresse Courriel" data-form-field="email"
+                                class="form-control" value="" id="email-form7-3">
+                        </div>
+
+                        <div class="col-auto mbr-section-btn align-center">
+                            <button type="button" id="btnSubmitForm1" class="btn btn-primary display-4">Suivant</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4 roll-in-blurred-left" id="form2" style="display: none;">
+                <div class="col-lg-8 mx-auto mbr-form"
+                    style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
+                    <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous
+                        afin de confirmer votre présence ou non.</p>
+                    <div class="dragArea row"> 
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Nom de l'invité" data-form-field="name" class="form-control"
+                                value="" id="name-form7-3">
+                        </div> 
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
+                                data-for="email">
+                                <p class="mbr-text mbr-fonts-style mb-3 display-7"
+                                    style="width: 70%; margin-top: 10px;">Pour le repas, l'invité choisi l'option
+                                    végétarien:</p>
+                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                    <option value="1">Oui</option>
+                                    <option value="2" selected>Non</option>
+                                </select>
+                            </div> 
+                      
+
+                        <div class="col-auto mbr-section-btn align-center">
+                            <button type="button" class="btn btn-primary display-4">Suivant</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/smoothscroll/smooth-scroll.js"></script>
     <script src="assets/ytplayer/index.js"></script>
@@ -104,12 +160,41 @@
             </div>
         </div>
     </section>
+
+
+    <script>
+        const btnSubmitForm1 = document.getElementById("btnSubmitForm1");
+        const selectPresent = document.getElementById("selectPresent");
+        selectPresent.addEventListener("change", () => {
+            hide(document.getElementById("divQuestionOui"), !(selectPresent.value === "1"));
+        });
+
+        btnSubmitForm1.addEventListener("click", async () => {
+            document.getElementById("title").innerHTML = "Confirmation invité"
+            document.getElementById("form1").classList.add("roll-in-blurred-right");
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            hide(document.getElementById("form2"), false);
+            hide(document.getElementById("form1"), true);
+        });
+
+        const hide = (elements, isHide = true) => {
+            elements = elements.length ? elements : [elements];
+            for (var index = 0; index < elements.length; index++) {
+                elements[index].style.display = isHide ? 'none' : 'flex'; 
+                elements[index].style.visibility = isHide ? "hidden" : "visible"
+            }
+        }
+
+
+    </script>
+
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/smoothscroll/smooth-scroll.js"></script>
     <script src="assets/ytplayer/index.js"></script>
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/theme/js/script.js"></script> 
-
+    <script src="assets/theme/js/script.js"></script>
 
 
 </body>
