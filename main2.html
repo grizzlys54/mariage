@@ -38,21 +38,21 @@
 <body>
     <section data-bs-version="5.1" class="menu menu2 cid-sFF0ciwnEL fadeInDown first" once="menu" id="menu2-0">
         <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="navbar-brand">
-
+            <div class="container-fluid" style="display: flex; flex-direction: row; width: 100%;;">
+                <div class="navbar-brand" style="display: flex; flex-direction: row; ">
                     <span class="navbar-caption-wrap"><img style="width: 16%;" src="icon.png">
                         <div class="text-white display-7">Roxanne &amp; Louis 2023</div>
                     </span>
                 </div>
-
+                <span style="float: right;"><a class="nav-link link text-white display-4" href="index.html"><u>Retourner
+                            aux informations</u></a></span>
             </div>
         </nav>
     </section>
 
-    <section data-bs-version="5.1" class="form7 cid-twQEQDZ7TC header11 cid-sFF0SGinka fadeIn second" id="form7-3"
+    <section data-bs-version="5.1" class="form7 cid-twQEQDZ7TC header11 cid-sFF0SGinka fadeInDown first" id="form7-3"
         style="background-color: #f0ece2; display:flex;">
-        <div class="container">
+        <div class="container fadeIn second">
             <div class="mbr-section-head">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                     <strong id="title">Confirmation</strong>
@@ -64,48 +64,65 @@
                     <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous
                         afin de confirmer votre présence:</p>
                     <div class="dragArea row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Nom" data-form-field="name" class="form-control"
+                                value="" id="name-form7-3">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
+                            <input type="email" name="email" placeholder="Adresse courriel" data-form-field="email"
+                                class="form-control" value="" id="email-form7-3">
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
                             data-for="email">
                             <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">Je
-                                serais présent:</p>
+                                serai présent:</p>
                             <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;"
                                 id="selectPresent">
                                 <option value="1" selected>Oui</option>
                                 <option value="2">Non</option>
                             </select>
                         </div>
-                        <div id="divQuestionOui" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui fadeInDown" style="display: flex;"
+                            data-for="email">
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">Je
+                                serai accompagné:</p>
+                            <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                <option value="1" selected>Oui</option>
+                                <option value="2">Non</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui fadeInDown">
                             <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
                                 data-for="email">
                                 <p class="mbr-text mbr-fonts-style mb-3 display-7"
-                                    style="width: 70%; margin-top: 10px;">Pour le repas, je choisi l'option
-                                    végétarien:</p>
+                                    style="width: 70%; margin-top: 10px;">Pour le repas, je choisis l'option
+                                    végétarienne:</p>
                                 <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
                                     <option value="1">Oui</option>
                                     <option value="2" selected>Non</option>
                                 </select>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
-                                data-for="email">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui fadeInDown"
+                                style="display: flex;" data-for="email">
                                 <p class="mbr-text mbr-fonts-style mb-3 display-7"
-                                    style="width: 70%; margin-top: 10px;">Je serais accompagné:</p>
-                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
-                                    <option value="1" selected>Oui</option>
-                                    <option value="2">Non</option>
+                                    style="width: 70%; margin-top: 10px;">J'ai des allergies</p>
+                                <select class="form-control" aria-label=".form-select-lg example" id="selectAllergy"
+                                    style="width: 30%;">
+                                    <option value="1">Oui</option>
+                                    <option value="2" selected>Non</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Nom" data-form-field="name" class="form-control"
-                                value="" id="name-form7-3">
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Adresse Courriel" data-form-field="email"
-                                class="form-control" value="" id="email-form7-3">
+                        <div id="divAllergie" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 fadeInDown"
+                            style="display: none;">
+                            <textarea class="form-control" placeholder="Allergies" rows="3"></textarea>
                         </div>
 
-                        <div class="col-auto mbr-section-btn align-center">
-                            <button type="button" id="btnSubmitForm1" class="btn btn-primary display-4">Suivant</button>
+                        <div class="col-auto mbr-section-btn align-center" style="width: 100%;">
+                            <button type="button" id="btnSubmitForm1" class="btn btn-primary display-4"
+                                style="float: right;">Suivant</button>
                         </div>
                     </div>
                 </div>
@@ -114,31 +131,61 @@
             <div class="row justify-content-center mt-4 roll-in-blurred-left" id="form2" style="display: none;">
                 <div class="col-lg-8 mx-auto mbr-form"
                     style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
-                    <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous
-                        afin de confirmer votre présence ou non.</p>
-                    <div class="dragArea row"> 
+                    <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous pour
+                        votre invité.</p>
+                    <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Nom de l'invité" data-form-field="name" class="form-control"
-                                value="" id="name-form7-3">
-                        </div> 
-                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
-                                data-for="email">
+                            <input type="text" name="name" placeholder="Nom de l'invité" data-form-field="name"
+                                class="form-control" value="" id="name-form7-3">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
+                            data-for="email">
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">
+                                Pour le repas, l'invité choisi l'option végétarien:</p>
+                            <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                <option value="1">Oui</option>
+                                <option value="2" selected>Non</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui2"
+                                style="display: flex;" data-for="email">
                                 <p class="mbr-text mbr-fonts-style mb-3 display-7"
-                                    style="width: 70%; margin-top: 10px;">Pour le repas, l'invité choisi l'option
-                                    végétarien:</p>
-                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                    style="width: 70%; margin-top: 10px;">L'invité a des allergies</p>
+                                <select class="form-control" aria-label=".form-select-lg example" id="selectAllergy2"
+                                    style="width: 30%;">
                                     <option value="1">Oui</option>
                                     <option value="2" selected>Non</option>
                                 </select>
-                            </div> 
-                      
+                            </div>
+                        </div>
+                        <div id="divAllergie2" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 fadeInDown"
+                            style="display: none;">
+                            <textarea class="form-control" placeholder="Allergies" rows="3"></textarea>
+                        </div>
 
-                        <div class="col-auto mbr-section-btn align-center">
-                            <button type="button" class="btn btn-primary display-4">Suivant</button>
+                        <div class="col-auto mbr-section-btn align-center"
+                            style="display: flex; flex-direction: row; width: 100%;">
+                            <button type="button" id="btnBackForm2" class="btn btn-primary display-4"
+                                style="width: 25%;">Retour</button>
+                            <div style="width: 50%;"></div>
+                            <button type="button" id="btnSubmitForm2" class="btn btn-primary display-4"
+                                style="width: 25%;">Suivant</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="row justify-content-center mt-4 roll-in-blurred-left" id="form3" style="display: none;">
+                <div class="col-lg-8 mx-auto mbr-form"
+                    style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
+                    <p class="mbr-text mbr-fonts-style mb-3 display-7">CHANSONS</p>
+                    
+                </div>
+            </div>
+
         </div>
     </section>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -165,24 +212,60 @@
     <script>
         const btnSubmitForm1 = document.getElementById("btnSubmitForm1");
         const selectPresent = document.getElementById("selectPresent");
+        const selectAllergy = document.getElementById("selectAllergy");
+
+        const selectAllergy2 = document.getElementById("selectAllergy2");
+        const btnBackForm2 = document.getElementById("btnBackForm2");
+        const btnSubmitForm2 = document.getElementById("btnSubmitForm2");
+
+
+
         selectPresent.addEventListener("change", () => {
-            hide(document.getElementById("divQuestionOui"), !(selectPresent.value === "1"));
+            document.querySelectorAll(".divQuestionOui").forEach(element => {
+                hide(element, !(selectPresent.value === "1"));
+            });
         });
 
-        btnSubmitForm1.addEventListener("click", async () => {
-            document.getElementById("title").innerHTML = "Confirmation invité"
-            document.getElementById("form1").classList.add("roll-in-blurred-right");
+        selectAllergy.addEventListener("change", () => {
+            document.getElementById("divAllergie").style.display = (selectAllergy.value === "2" ? "none" : "block");
+        });
+
+        selectAllergy2.addEventListener("change", () => {
+            document.getElementById("divAllergie2").style.display = (selectAllergy2.value === "2" ? "none" : "block");
+        });
+
+        btnSubmitForm1.addEventListener("click", async () => { 
+            ShowForm("form1", "form2", "Confirmation invité");
+        });
+
+        btnBackForm2.addEventListener("click", () => {
+            ShowForm("form2", "form1", "Confirmation");
+        });
+
+        btnSubmitForm2.addEventListener("click", () => {
+            ShowForm("form2", "form3", "Demandes spéciales");
+        });
+
+
+        const ShowForm = async (divToHide, divToShow, title) =>{
+            document.getElementById("title").innerHTML = title;
+            document.getElementById(divToHide).classList.add("roll-in-blurred-right");
 
             await new Promise(resolve => setTimeout(resolve, 500));
 
-            hide(document.getElementById("form2"), false);
-            hide(document.getElementById("form1"), true);
-        });
+            hide(document.getElementById(divToShow), false);
+            hide(document.getElementById(divToHide), true); 
+
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            document.getElementById(divToHide).classList.remove("roll-in-blurred-right");
+            document.getElementById(divToShow).classList.remove("roll-in-blurred-letf");
+        };
 
         const hide = (elements, isHide = true) => {
             elements = elements.length ? elements : [elements];
             for (var index = 0; index < elements.length; index++) {
-                elements[index].style.display = isHide ? 'none' : 'flex'; 
+                elements[index].style.display = isHide ? 'none' : 'flex';
                 elements[index].style.visibility = isHide ? "hidden" : "visible"
             }
         }
