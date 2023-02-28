@@ -205,7 +205,8 @@
                             class="form-control" value="" id="txtArtist1">
                     </div>
 
-                    <div id="divSong2" style="display: none; border-top:5px solid #800020; margin-top: 3%; padding-top: 3%;">
+                    <div id="divSong2"
+                        style="display: none; border-top:5px solid #800020; margin-top: 3%; padding-top: 3%;">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
                             <input type="text" name="name" placeholder="Titre Chanson 2" data-form-field="name"
                                 class="form-control" value="" id="txtSong2">
@@ -250,143 +251,150 @@
         </div>
     </section>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
+    </script>
 
-    <script>
-        const btnSubmitForm1 = document.getElementById("btnSubmitForm1");
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init("co5wmnqNtXfiRYLq5"); //use your USER ID
 
-        const btnBackForm2 = document.getElementById("btnBackForm2");
-        const btnSubmitForm2 = document.getElementById("btnSubmitForm2");
+            const btnSubmitForm1 = document.getElementById("btnSubmitForm1");
 
-        const txtAllergy1 = document.getElementById("txtAllergy1");
-        const txtEmail1 = document.getElementById("txtEmail1");
-        const txtNom1 = document.getElementById("txtNom1");
-        const selectAccompagnateur = document.getElementById("selectAccompagnateur");
-        const selectAllergy = document.getElementById("selectAllergy");
-        const selectPresent = document.getElementById("selectPresent");
-        const selectVege1 = document.getElementById("selectVege1");
+            const btnBackForm2 = document.getElementById("btnBackForm2");
+            const btnSubmitForm2 = document.getElementById("btnSubmitForm2");
 
-        const txtAllergy2 = document.getElementById("txtAllergy2");
-        const txtNom2 = document.getElementById("txtNom2");
-        const selectAllergy2 = document.getElementById("selectAllergy2");
-        const selectVege2 = document.getElementById("selectVege2");
+            const txtAllergy1 = document.getElementById("txtAllergy1");
+            const txtEmail1 = document.getElementById("txtEmail1");
+            const txtNom1 = document.getElementById("txtNom1");
+            const selectAccompagnateur = document.getElementById("selectAccompagnateur");
+            const selectAllergy = document.getElementById("selectAllergy");
+            const selectPresent = document.getElementById("selectPresent");
+            const selectVege1 = document.getElementById("selectVege1");
 
-        let formBack = "form1";
-        let title = "Confirmation";
+            const txtAllergy2 = document.getElementById("txtAllergy2");
+            const txtNom2 = document.getElementById("txtNom2");
+            const selectAllergy2 = document.getElementById("selectAllergy2");
+            const selectVege2 = document.getElementById("selectVege2");
 
-        selectPresent.addEventListener("change", () => {
-            let isPresent = selectPresent.value === "1"
+            let formBack = "form1";
+            let title = "Confirmation";
 
-            document.querySelectorAll(".divQuestionOui").forEach(element => {
-                hide(element, !isPresent);
+            selectPresent.addEventListener("change", () => {
+                let isPresent = selectPresent.value === "1"
+
+                document.querySelectorAll(".divQuestionOui").forEach(element => {
+                    hide(element, !isPresent);
+                });
+
+                btnSubmitForm1.value = isPresent ? "Suivant" : "Envoyer"
             });
 
-            btnSubmitForm1.value = isPresent ? "Suivant" : "Envoyer"
-        });
+            selectAllergy.addEventListener("change", () => {
+                document.getElementById("divAllergie").style.display = (selectAllergy.value === "2" ? "none" : "block");
+            });
 
-        selectAllergy.addEventListener("change", () => {
-            document.getElementById("divAllergie").style.display = (selectAllergy.value === "2" ? "none" : "block");
-        });
+            selectAllergy2.addEventListener("change", () => {
+                document.getElementById("divAllergie2").style.display = (selectAllergy2.value === "2" ? "none" : "block");
+            });
 
-        selectAllergy2.addEventListener("change", () => {
-            document.getElementById("divAllergie2").style.display = (selectAllergy2.value === "2" ? "none" : "block");
-        });
+            btnSubmitForm1.addEventListener("click", async () => {
+                let isGoing = selectPresent.value == "1";
+                let thereSomeoneElse = selectAccompagnateur.value == "1"
+                let isVege = selectAllergy.value == "1"
+                let nom = txtNom1.value;
+                let email = txtEmail1.value;
 
-        btnSubmitForm1.addEventListener("click", async () => {
-            let isGoing = selectPresent.value == "1";
-            let thereSomeoneElse = selectAccompagnateur.value == "1"
-            let isVege = selectAllergy.value == "1"
-            let nom = txtNom1.value;
-            let email = txtEmail1.value;
+                let isNotOk = true;
 
-            let isNotOk = true;
+                if (nom !== "" && email !== "") {
+                    isNotOk = false;
 
-            if (nom !== "" && email !== "") {
-                isNotOk = false;
+                    if (isVege)
+                        isNotOk = txtAllergy1.value === "";
+                }
 
-                if (isVege)
-                    isNotOk = txtAllergy1.value === "";
-            }
+                lbError1.style.display = (isNotOk ? "flex" : "none");
 
-            lbError1.style.display = (isNotOk ? "flex" : "none");
+                if (!isNotOk) {
+                    formBack = "form1";
+                    title = "Confirmation";
 
-            if (!isNotOk) {
-                formBack = "form1";
-                title = "Confirmation";
-
-                if (isGoing) {
-                    if (thereSomeoneElse)
-                        ShowForm("form1", "form2", "Confirmation invité");
-                    else {
-                        document.getElementById("divSong2").style.display = "none";
-                        ShowForm("form1", "form3", "Demandes spéciales");
+                    if (isGoing) {
+                        if (thereSomeoneElse)
+                            ShowForm("form1", "form2", "Confirmation invité");
+                        else {
+                            document.getElementById("divSong2").style.display = "none";
+                            ShowForm("form1", "form3", "Demandes spéciales");
+                        }
+                    } else {
+                        //Send
                     }
-                } else {
-                    //Send
+                }
+            });
+
+            btnBackForm2.addEventListener("click", () => {
+                ShowForm("form2", "form1", title);
+            });
+
+            btnSubmitForm2.addEventListener("click", () => {
+                let isVege = selectAllergy2.value == "1"
+                let nom = txtNom2.value;
+
+                let isNotOk = true;
+
+                if (nom !== "") {
+                    isNotOk = false;
+
+                    if (isVege)
+                        isNotOk = txtAllergy2.value === "";
+                }
+
+                lbError2.style.display = (isNotOk ? "flex" : "none");
+
+                if (!isNotOk) {
+                    formBack = "form2";
+                    title = "Confirmation invité";
+
+                    document.getElementById("divSong2").style.display = "block";
+                    ShowForm("form2", "form3", "Demandes spéciales");
+                }
+            });
+
+            btnBackForm3.addEventListener("click", () => {
+                ShowForm("form3", formBack, title);
+            });
+
+            btnSubmitForm3.addEventListener("click", () => {
+
+            });
+
+            const ShowForm = async (divToHide, divToShow, title) => {
+                document.getElementById("title").innerHTML = title;
+                document.getElementById(divToHide).classList.add("roll-in-blurred-right");
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                hide(document.getElementById(divToShow), false);
+                hide(document.getElementById(divToHide), true);
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                document.getElementById(divToHide).classList.remove("roll-in-blurred-right");
+                document.getElementById(divToShow).classList.remove("roll-in-blurred-letf");
+            };
+
+            const hide = (elements, isHide = true) => {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = isHide ? 'none' : 'flex';
+                    elements[index].style.visibility = isHide ? "hidden" : "visible"
                 }
             }
-        });
 
-        btnBackForm2.addEventListener("click", () => {
-            ShowForm("form2", "form1", title);
-        });
-
-        btnSubmitForm2.addEventListener("click", () => {
-            let isVege = selectAllergy2.value == "1"
-            let nom = txtNom2.value;
-
-            let isNotOk = true;
-
-            if (nom !== "") {
-                isNotOk = false;
-
-                if (isVege)
-                    isNotOk = txtAllergy2.value === "";
-            }
-
-            lbError2.style.display = (isNotOk ? "flex" : "none");
-
-            if (!isNotOk) {
-                formBack = "form2";
-                title = "Confirmation invité";
-
-                document.getElementById("divSong2").style.display = "block";
-                ShowForm("form2", "form3", "Demandes spéciales");
-            }
-        });
-
-        btnBackForm3.addEventListener("click", () => {
-            ShowForm("form3", formBack, title);
-        });
-
-        btnSubmitForm3.addEventListener("click", () => {
-
-        });
-
-        const ShowForm = async (divToHide, divToShow, title) => {
-            document.getElementById("title").innerHTML = title;
-            document.getElementById(divToHide).classList.add("roll-in-blurred-right");
-
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            hide(document.getElementById(divToShow), false);
-            hide(document.getElementById(divToHide), true);
-
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
-            document.getElementById(divToHide).classList.remove("roll-in-blurred-right");
-            document.getElementById(divToShow).classList.remove("roll-in-blurred-letf");
-        };
-
-        const hide = (elements, isHide = true) => {
-            elements = elements.length ? elements : [elements];
-            for (var index = 0; index < elements.length; index++) {
-                elements[index].style.display = isHide ? 'none' : 'flex';
-                elements[index].style.visibility = isHide ? "hidden" : "visible"
-            }
-        }
-
-
+        })();
     </script>
+
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/smoothscroll/smooth-scroll.js"></script>
