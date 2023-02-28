@@ -62,15 +62,19 @@
                 <div class="col-lg-8 mx-auto mbr-form"
                     style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
                     <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous
-                        afin de confirmer votre présence:</p>
+                        afin de confirmer votre présence:
+                    </p>
+                    <p id="lbError1" class="mbr-text mbr-fonts-style mb-3 display-7" style="display: none; color: red;">
+                        Veuillez remplir tout les champs avant de continuer svp!
+                    </p>
                     <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
                             <input type="text" name="name" placeholder="Nom" data-form-field="name" class="form-control"
-                                value="" id="name-form7-3">
+                                value="" id="txtNom1">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
                             <input type="email" name="email" placeholder="Adresse courriel" data-form-field="email"
-                                class="form-control" value="" id="email-form7-3">
+                                class="form-control" value="" id="txtEmail1">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
                             data-for="email">
@@ -82,11 +86,12 @@
                                 <option value="2">Non</option>
                             </select>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui fadeInDown" style="display: flex;"
-                            data-for="email">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 divQuestionOui fadeInDown"
+                            style="display: flex;" data-for="email">
                             <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">Je
                                 serai accompagné:</p>
-                            <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                            <select class="form-control" id="selectAccompagnateur" aria-label=".form-select-lg example"
+                                style="width: 30%;">
                                 <option value="1" selected>Oui</option>
                                 <option value="2">Non</option>
                             </select>
@@ -97,7 +102,8 @@
                                 <p class="mbr-text mbr-fonts-style mb-3 display-7"
                                     style="width: 70%; margin-top: 10px;">Pour le repas, je choisis l'option
                                     végétarienne:</p>
-                                <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                                <select class="form-control" id="selectVege1" aria-label=".form-select-lg example"
+                                    style="width: 30%;">
                                     <option value="1">Oui</option>
                                     <option value="2" selected>Non</option>
                                 </select>
@@ -117,7 +123,7 @@
                         </div>
                         <div id="divAllergie" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 fadeInDown"
                             style="display: none;">
-                            <textarea class="form-control" placeholder="Allergies" rows="3"></textarea>
+                            <textarea class="form-control" id="txtAllergy1" placeholder="Allergies" rows="3"></textarea>
                         </div>
 
                         <div class="col-auto mbr-section-btn align-center" style="width: 100%;">
@@ -133,16 +139,20 @@
                     style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
                     <p class="mbr-text mbr-fonts-style mb-3 display-7">Veuillez remplir le questionnaire ci-dessous pour
                         votre invité.</p>
+                    <p id="lbError2" class="mbr-text mbr-fonts-style mb-3 display-7" style="display: none; color: red;">
+                        Veuillez remplir tout les champs avant de continuer svp!
+                    </p>
                     <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Nom de l'invité" data-form-field="name"
-                                class="form-control" value="" id="name-form7-3">
+                            <input type="text" id="txtNom2" name="name" placeholder="Nom de l'invité"
+                                data-form-field="name" class="form-control" value="" id="name-form7-3">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" style="display: flex;"
                             data-for="email">
                             <p class="mbr-text mbr-fonts-style mb-3 display-7" style="width: 70%; margin-top: 10px;">
                                 Pour le repas, l'invité choisi l'option végétarien:</p>
-                            <select class="form-control" aria-label=".form-select-lg example" style="width: 30%;">
+                            <select class="form-control" id="selectVege2" aria-label=".form-select-lg example"
+                                style="width: 30%;">
                                 <option value="1">Oui</option>
                                 <option value="2" selected>Non</option>
                             </select>
@@ -162,13 +172,13 @@
                         </div>
                         <div id="divAllergie2" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3 fadeInDown"
                             style="display: none;">
-                            <textarea class="form-control" placeholder="Allergies" rows="3"></textarea>
+                            <textarea class="form-control" id="txtAllergy2" placeholder="Allergies" rows="3"></textarea>
                         </div>
 
                         <div class="col-auto mbr-section-btn align-center"
                             style="display: flex; flex-direction: row; width: 100%;">
                             <button type="button" id="btnBackForm2" class="btn btn-primary display-4"
-                                style="width: 25%;">Retour</button>
+                                style="width: 25%;">Précédant</button>
                             <div style="width: 50%;"></div>
                             <button type="button" id="btnSubmitForm2" class="btn btn-primary display-4"
                                 style="width: 25%;">Suivant</button>
@@ -181,8 +191,40 @@
             <div class="row justify-content-center mt-4 roll-in-blurred-left" id="form3" style="display: none;">
                 <div class="col-lg-8 mx-auto mbr-form"
                     style="margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px; padding:5%;">
-                    <p class="mbr-text mbr-fonts-style mb-3 display-7">CHANSONS</p>
-                    
+
+                    <p class="mbr-text mbr-fonts-style mb-3 display-7">
+                        Aidez-nous à agrémenter la fête en proposant votre chanson préférée !
+                    </p>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
+                        <input type="text" name="name" placeholder="Titre Chanson 1" data-form-field="name"
+                            class="form-control" value="" id="txtSong1">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
+                        <input type="email" name="email" placeholder="Artiste 1" data-form-field="email"
+                            class="form-control" value="" id="txtArtist1">
+                    </div>
+
+                    <div id="divSong2" style="display: none; border-top:5px solid #800020; margin-top: 3%; padding-top: 3%;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Titre Chanson 2" data-form-field="name"
+                                class="form-control" value="" id="txtSong2">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
+                            <input type="email" name="email" placeholder="Artiste 2" data-form-field="email"
+                                class="form-control" value="" id="txtArtist2">
+                        </div>
+                    </div>
+
+
+                    <div class="col-auto mbr-section-btn align-center"
+                        style="display: flex; flex-direction: row; width: 100%;">
+                        <button type="button" id="btnBackForm3" class="btn btn-primary display-4"
+                            style="width: 25%;">Précédant</button>
+                        <div style="width: 50%;"></div>
+                        <button type="button" id="btnSubmitForm3" class="btn btn-primary display-4"
+                            style="width: 25%;">Envoyer</button>
+                    </div>
                 </div>
             </div>
 
@@ -211,19 +253,34 @@
 
     <script>
         const btnSubmitForm1 = document.getElementById("btnSubmitForm1");
-        const selectPresent = document.getElementById("selectPresent");
-        const selectAllergy = document.getElementById("selectAllergy");
 
-        const selectAllergy2 = document.getElementById("selectAllergy2");
         const btnBackForm2 = document.getElementById("btnBackForm2");
         const btnSubmitForm2 = document.getElementById("btnSubmitForm2");
 
+        const txtAllergy1 = document.getElementById("txtAllergy1");
+        const txtEmail1 = document.getElementById("txtEmail1");
+        const txtNom1 = document.getElementById("txtNom1");
+        const selectAccompagnateur = document.getElementById("selectAccompagnateur");
+        const selectAllergy = document.getElementById("selectAllergy");
+        const selectPresent = document.getElementById("selectPresent");
+        const selectVege1 = document.getElementById("selectVege1");
 
+        const txtAllergy2 = document.getElementById("txtAllergy2");
+        const txtNom2 = document.getElementById("txtNom2");
+        const selectAllergy2 = document.getElementById("selectAllergy2");
+        const selectVege2 = document.getElementById("selectVege2");
+
+        let formBack = "form1";
+        let title = "Confirmation";
 
         selectPresent.addEventListener("change", () => {
+            let isPresent = selectPresent.value === "1"
+
             document.querySelectorAll(".divQuestionOui").forEach(element => {
-                hide(element, !(selectPresent.value === "1"));
+                hide(element, !isPresent);
             });
+
+            btnSubmitForm1.value = isPresent ? "Suivant" : "Envoyer"
         });
 
         selectAllergy.addEventListener("change", () => {
@@ -234,30 +291,88 @@
             document.getElementById("divAllergie2").style.display = (selectAllergy2.value === "2" ? "none" : "block");
         });
 
-        btnSubmitForm1.addEventListener("click", async () => { 
-            ShowForm("form1", "form2", "Confirmation invité");
+        btnSubmitForm1.addEventListener("click", async () => {
+            let isGoing = selectPresent.value == "1";
+            let thereSomeoneElse = selectAccompagnateur.value == "1"
+            let isVege = selectAllergy.value == "1"
+            let nom = txtNom1.value;
+            let email = txtEmail1.value;
+
+            let isNotOk = true;
+
+            if (nom !== "" && email !== "") {
+                isNotOk = false;
+
+                if (isVege)
+                    isNotOk = txtAllergy1.value === "";
+            }
+
+            lbError1.style.display = (isNotOk ? "flex" : "none");
+
+            if (!isNotOk) {
+                formBack = "form1";
+                title = "Confirmation";
+
+                if (isGoing) {
+                    if (thereSomeoneElse)
+                        ShowForm("form1", "form2", "Confirmation invité");
+                    else {
+                        document.getElementById("divSong2").style.display = "none";
+                        ShowForm("form1", "form3", "Demandes spéciales");
+                    }
+                } else {
+                    //Send
+                }
+            }
         });
 
         btnBackForm2.addEventListener("click", () => {
-            ShowForm("form2", "form1", "Confirmation");
+            ShowForm("form2", "form1", title);
         });
 
         btnSubmitForm2.addEventListener("click", () => {
-            ShowForm("form2", "form3", "Demandes spéciales");
+            let isVege = selectAllergy2.value == "1"
+            let nom = txtNom2.value;
+
+            let isNotOk = true;
+
+            if (nom !== "") {
+                isNotOk = false;
+
+                if (isVege)
+                    isNotOk = txtAllergy2.value === "";
+            }
+
+            lbError2.style.display = (isNotOk ? "flex" : "none");
+
+            if (!isNotOk) {
+                formBack = "form2";
+                title = "Confirmation invité";
+
+                document.getElementById("divSong2").style.display = "block";
+                ShowForm("form2", "form3", "Demandes spéciales");
+            }
         });
 
+        btnBackForm3.addEventListener("click", () => {
+            ShowForm("form3", formBack, title);
+        });
 
-        const ShowForm = async (divToHide, divToShow, title) =>{
+        btnSubmitForm3.addEventListener("click", () => {
+
+        });
+
+        const ShowForm = async (divToHide, divToShow, title) => {
             document.getElementById("title").innerHTML = title;
             document.getElementById(divToHide).classList.add("roll-in-blurred-right");
 
             await new Promise(resolve => setTimeout(resolve, 500));
 
             hide(document.getElementById(divToShow), false);
-            hide(document.getElementById(divToHide), true); 
+            hide(document.getElementById(divToHide), true);
 
             await new Promise(resolve => setTimeout(resolve, 1000));
-            
+
             document.getElementById(divToHide).classList.remove("roll-in-blurred-right");
             document.getElementById(divToShow).classList.remove("roll-in-blurred-letf");
         };
