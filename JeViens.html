@@ -177,7 +177,7 @@
 
                         <div class="col-auto mbr-section-btn align-center"
                             style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
-                            <button type="button" id="btnBackForm2" class="btn btn-primary display-4">Précédant</button> 
+                            <button type="button" id="btnBackForm2" class="btn btn-primary display-4">Précédant</button>
                             <button type="button" id="btnSubmitForm2" class="btn btn-primary display-4">Suivant</button>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                 class="form-control" value="" id="txtSong2">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Artiste 2" data-form-field="email"
+                            <input type="email" name="email" placeholder="Artiste" data-form-field="email"
                                 class="form-control" value="" id="txtArtist2">
                         </div>
                     </div>
@@ -217,8 +217,10 @@
 
                     <div class="col-auto mbr-section-btn align-center"
                         style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
-                        <button type="button" id="btnBackForm3" class="btn btn-primary display-4" style="width: 25%;">Précédant</button> 
-                        <button type="button" id="btnSubmitForm3" class="btn btn-primary display-4" style="width: 25%;">Envoyer</button>
+                        <button type="button" id="btnBackForm3" class="btn btn-primary display-4"
+                            style="width: 25%;">Précédant</button>
+                        <button type="button" id="btnSubmitForm3" class="btn btn-primary display-4"
+                            style="width: 25%;">Envoyer</button>
                     </div>
                 </div>
             </div>
@@ -271,6 +273,11 @@
             const selectAllergy2 = document.getElementById("selectAllergy2");
             const selectVege2 = document.getElementById("selectVege2");
 
+            const txtChanson1 = document.getElementById("txtSong1");
+            const txtArtiste1 = document.getElementById("txtArtist1");
+            const txtChanson2 = document.getElementById("txtSong2");
+            const txtArtiste2 = document.getElementById("txtArtist2");
+
             let formBack = "form1";
             let title = "Confirmation";
 
@@ -317,7 +324,7 @@
                     if (isGoing) {
                         if (thereSomeoneElse)
                             ShowForm("form1", "form2", "Confirmation invité");
-                        else { 
+                        else {
                             ShowForm("form1", "form3", "Demandes spéciales");
                             hide(document.getElementById("divSong2"), true);
                         }
@@ -386,10 +393,33 @@
                     elements[index].style.display = isHide ? 'none' : 'flex';
                     elements[index].style.visibility = isHide ? "hidden" : "visible"
                 }
-            } 
+            }
 
-            const sendInfo = async () => {
+            const sendInfo = async () => { 
+                var templateParams = {
+                    nom: txtNom1.value,
+                    email: txtEmail1.value,
+                    present: selectPresent.value == "1",
+                    autrePersonne : selectAccompagnateur.value == "1",
+                    isVege : selectVege1.value == "1",
+                    isAllergy : selectAllergy.value == "1",
+                    allergy : txtAllergy1.value,
+                    nom2 : txtNom2.value,
+                    isVege2 : selectVege2.value == "1",
+                    isAllergy2 : selectAllergy2.value == "1",
+                    allergy2 : txtAllergy2.value,
+                    song1 : txtChanson1.value,
+                    song2 : txtChanson2.value,
+                    artiste1 : txtArtiste1.value,
+                    artiste2 : txtArtiste2.value,
+                };
 
+                emailjs.send('service_98bfdrl', 'template_q9kzfv3', templateParams) //Insert your email service ID and email template ID
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
             };
         })();
     </script>
