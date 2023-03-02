@@ -37,33 +37,21 @@
 </head>
 
 <body>
-
     <section data-bs-version="5.1" class="menu menu2 cid-sFF0ciwnEL fadeInDown" once="menu" id="menu2-0">
         <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
             <div class="container-fluid" style="display: flex;flex-direction: row;width: 100%;">
-                <div class="navbar-brand" style="display: flex;flex-direction: row;width: 70%;">
+                <div class="navbar-brand" style="display: flex;flex-direction: row;width: 60%;">
                     <span class="navbar-caption-wrap"><img style="width: 16%;" src="icon.png">
                         <div class="text-white display-7">Roxanne &amp; Louis 2023</div>
                     </span>
                 </div>
-                <button class="navbar-toggler collapsed" type="button"  s data-bs-toggle="collapse"
-                    data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                        <li class="nav-item"><a class="nav-link link text-white display-4"
-                                id="liInscription">Inscription</a>
+                        <li class="nav-item"><a class="nav-link link text-white display-4 liInscription">Inscription</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link link text-white display-4"
-                                id="liInformations">Information</a></li>
-                        <li class="nav-item"><a class="nav-link link text-white display-4" id="liLieux">Lieu</a></li>
+                        <li class="nav-item"><a
+                                class="nav-link link text-white display-4 liInformations">Information</a></li>
+                        <li class="nav-item"><a class="nav-link link text-white display-4 liLieux">Lieu</a></li>
                     </ul>
                 </div>
             </div>
@@ -134,7 +122,8 @@
                                 <u style="color:#800020"><strong>Prévoir de l'argent comptant</strong></u>
                             </h5>
                             <p class="mbr-text mbr-fonts-style mb-3 display-7">
-                                Un service de bar sera à votre disposition avec <strong>argent comptant seulement</strong>. Il n'y a malheuresement aucun guichet à la Vigie. Le guichet le
+                                Un service de bar sera à votre disposition avec <strong>argent comptant
+                                    seulement</strong>. Il n'y a malheuresement aucun guichet à la Vigie. Le guichet le
                                 plus proche se trouve à 10 minute de marche du site.
                             </p>
                         </div>
@@ -203,6 +192,25 @@
             </div>
         </div>
     </section>
+
+
+    <!-- hamburger -->
+    <input type="checkbox" id="navi-toggle" class="checkbox" />
+    <label for="navi-toggle" class="button" id="collapseMenuHamburger">
+        <span class="icon">&nbsp;</span>
+    </label>
+    <div class="background">&nbsp;</div>
+
+    <!-- nav -->
+    <nav class="nav" style="background-color: #f0ece2;">
+        <ul class="list">
+            <li class="item"> <a class="link nav-link display-2 liInscription" style="color: #800020;"> Inscription </a>
+            </li>
+            <li class="item"> <a class="link nav-link display-2 liInformations" style="color: #800020;"> Information
+                </a> </li>
+            <li class="item"> <a class="link nav-link display-2 liLieux" style="color: #800020;"> Lieu </a> </li>
+        </ul>
+    </nav>
 </body>
 <script>
     // Set the date we're counting down to
@@ -212,16 +220,29 @@
         headings: ["Jours", "Heures", "Minutes", "Secondes"]
     }).start();
 
-    document.getElementById("liInscription").addEventListener("click", () => {
-        document.getElementById("sectionJeViens").scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll(".liInscription").forEach(x => {
+        x.addEventListener("click", () => {
+            if (document.getElementById("navi-toggle").checked)
+                document.getElementById("navi-toggle").click();
+
+            document.getElementById("sectionJeViens").scrollIntoView({ behavior: 'smooth' });
+        });
     });
 
-    document.getElementById("liInformations").addEventListener("click", () => {
-        document.getElementById("sectionInformations").scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll(".liInformations").forEach(x => {
+        x.addEventListener("click", () => {
+            if (document.getElementById("navi-toggle").checked)
+                document.getElementById("navi-toggle").click();
+            document.getElementById("sectionInformations").scrollIntoView({ behavior: 'smooth' });
+        });
     });
 
-    document.getElementById("liLieux").addEventListener("click", () => {
-        document.getElementById("sectionLieux").scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll(".liLieux").forEach(x => {
+        x.addEventListener("click", () => {
+            if (document.getElementById("navi-toggle").checked)
+                document.getElementById("navi-toggle").click();
+            document.getElementById("sectionLieux").scrollIntoView({ behavior: 'smooth' });
+        });
     });
 
 </script>
